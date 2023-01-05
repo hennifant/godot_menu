@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Pulsefire.mp3-96cbc0cdc741443280896fd0db217c81.mp3str"
+
+[deps]
+
+source_file="res://Audio/Menu/Pulsefire.mp3"
+dest_files=[ "res://.import/Pulsefire.mp3-96cbc0cdc741443280896fd0db217c81.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Skyrim.mp3-37d2b6ac3fd341c4561c3e7fed13cd54.mp3str"
+
+[deps]
+
+source_file="res://Audio/Menu/Skyrim.mp3"
+dest_files=[ "res://.import/Skyrim.mp3-37d2b6ac3fd341c4561c3e7fed13cd54.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

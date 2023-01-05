@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Horizons.mp3-5313e7cac7c55cde7cbd3cc2121cbcd4.mp3str"
+
+[deps]
+
+source_file="res://Audio/Menu/Horizons.mp3"
+dest_files=[ "res://.import/Horizons.mp3-5313e7cac7c55cde7cbd3cc2121cbcd4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

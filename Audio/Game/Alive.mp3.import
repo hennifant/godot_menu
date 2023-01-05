@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Alive.mp3-8db0ee114604dae5f6e0e1cfc7457dab.mp3str"
+
+[deps]
+
+source_file="res://Audio/Game/Alive.mp3"
+dest_files=[ "res://.import/Alive.mp3-8db0ee114604dae5f6e0e1cfc7457dab.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

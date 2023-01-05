@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Essence.mp3-e17e03ddaf02bc85f4bfd366d76e6c3f.mp3str"
+
+[deps]
+
+source_file="res://Audio/Menu/Essence.mp3"
+dest_files=[ "res://.import/Essence.mp3-e17e03ddaf02bc85f4bfd366d76e6c3f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

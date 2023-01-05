@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Fallout.mp3-a194e37934090a1b18c0ed9223ab907b.mp3str"
+
+[deps]
+
+source_file="res://Audio/Menu/Fallout.mp3"
+dest_files=[ "res://.import/Fallout.mp3-a194e37934090a1b18c0ed9223ab907b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

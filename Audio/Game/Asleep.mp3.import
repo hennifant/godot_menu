@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Asleep.mp3-41baeeebc584a7d956d0c5f9dd8ee48c.mp3str"
+
+[deps]
+
+source_file="res://Audio/Game/Asleep.mp3"
+dest_files=[ "res://.import/Asleep.mp3-41baeeebc584a7d956d0c5f9dd8ee48c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
