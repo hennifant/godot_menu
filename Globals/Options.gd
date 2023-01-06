@@ -2,15 +2,16 @@ extends Control
 
 # Temporary
 
-const SAVE_PATH = "res://save.json"
-var settings = {}
+const SAVE_PATH = "res://settings.json"
 
+var settings = {}
 var play_Music = 1
 var play_Effects = 1
-
 var new_choice = 1
 var song
 var menu = true
+var paused = false
+var pause_menu = false
 
 # Saved
 

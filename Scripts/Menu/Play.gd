@@ -8,9 +8,11 @@ func _ready():
 	
 
 func New_Game():
+	get_tree().change_scene("res://Scenes/Menu/HUD.tscn")
 	pass
 	
 func Load_Game():
+	get_tree().change_scene("res://Scenes/Menu/Load.tscn")
 	pass
 	
 func Back():
