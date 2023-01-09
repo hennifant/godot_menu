@@ -1,9 +1,9 @@
 extends Control
 
-const SAVE1_PATH = "res://save.json"
+const SAVE1_PATH = "res://save1.json"
 var save1 = {}
 var save1_file = File.new()
-const SAVE2_PATH = "res://save.json"
+const SAVE2_PATH = "res://save2.json"
 var save2 = {}
 var save2_file = File.new()
 
@@ -15,6 +15,8 @@ func _ready():
 	$btn_Save1.connect("pressed", self, "Save1")
 	$btn_Save2.connect("pressed", self, "Save2")
 	$btn_Back.connect("pressed", self, "Back")
+	
+	$lbl_Name.set_size(Vector2(1024,60))
 	
 	pass
 

@@ -8,6 +8,8 @@ func _ready():
 	$Pause/btn_Save_Game.connect("pressed", self, "Save")
 	$Pause/btn_Options.connect("pressed", self, "Options")
 	$Pause/btn_Quit.connect("pressed", self, "Quit")
+	pass
+	
 	
 	# temporary
 	

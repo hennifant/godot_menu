@@ -1,9 +1,9 @@
 extends Control
 
-const SAVE1_PATH = "res://save.json"
+const SAVE1_PATH = "res://save1.json"
 var save1 = {}
 var save1_file = File.new()
-const SAVE2_PATH = "res://save.json"
+const SAVE2_PATH = "res://save2.json"
 var save2 = {}
 var save2_file = File.new()
 
@@ -17,6 +17,9 @@ func _ready():
 		
 	if(!save2_file.file_exists(SAVE2_PATH)):
 		$btn_Save2.hide()
+		
+	$lbl_Name.set_size(Vector2(1024,60))
+	
 	pass
 
 func Save1():

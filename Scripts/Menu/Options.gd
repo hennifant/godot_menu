@@ -5,6 +5,9 @@ var select_timer = 5
 
 var sp_pause = false
 var sp_use = false
+
+var ready = true
+var ready_timer = 5
 	
 func _ready():
 	$btn_Video.connect("pressed", self, "Video")
@@ -17,7 +20,7 @@ func _ready():
 	$ctrl_Audio/sldr_Master.connect("value_changed", self, "Master_Volume")
 	$ctrl_Audio/btn_Music_Mute.connect("pressed", self, "Mute_Music")
 	$ctrl_Audio/sldr_Music.connect("value_changed", self, "Music_Volume")
-	$ctrl_Audio/btn_Effects.connect("pressed", self, "Mute_Effects")
+	$ctrl_Audio/btn_Effects_Mute.connect("pressed", self, "Mute_Effects")
 	$ctrl_Audio/sldr_Effects.connect("value_changed", self, "Effects_Volume")
 	$ctrl_Controls/btn_Use.connect("pressed", self, "Use_Button")
 	$ctrl_Controls/btn_Pause.connect("pressed", self, "Pause_Button")
@@ -49,6 +52,22 @@ func _ready():
 	$ctrl_Audio.set_position(Vector2(0,150))
 	$ctrl_Controls.set_size(Vector2(1024,450))
 	$ctrl_Controls.set_position(Vector2(0,150))
+	
+	if(Options.Master_Mute == true):
+		$ctrl_Audio/sldr_Master.set_modulate(Color(1,1,1,0.1))
+	elif(Options.Master_Mute == false):
+		$ctrl_Audio/sldr_Master.set_modulate(Color(1,1,1,1))
+		
+	if(Options.Music_Mute == true):
+		$ctrl_Audio/sldr_Music.set_modulate(Color(1,1,1,0.1))
+	elif(Options.Music_Mute == false):
+		$ctrl_Audio/sldr_Music.set_modulate(Color(1,1,1,1))
+	
+	if(Options.Effects_Mute == true):
+		$ctrl_Audio/sldr_Effects.set_modulate(Color(1,1,1,0.1))
+	elif(Options.Effects_Mute == false):
+		$ctrl_Audio/sldr_Effects.set_modulate(Color(1,1,1,1))
+		
 	pass
 	
 func _process(delta):
@@ -58,6 +77,12 @@ func _process(delta):
 		can_select = false
 	else:
 		can_select = true
+	
+	if(ready_timer > 0):
+		ready_timer -= 1
+		ready = true
+	else:
+		ready = false
 		
 	if($ctrl_Controls.is_visible()):
 		$ctrl_Controls/lbl_Use.set_text(OS.get_scancode_string(Options.sp_use))
@@ -136,43 +161,64 @@ func Fullscreen(item):
 pass
 	
 func Mute_Master():
-	if(Options.Master_Mute == false):
-		Options.Master_Mute = true
-	if(Options.Master_Mute == true):
-		Options.Master_Mute = false
+	if(ready == false):
+		if(Options.Master_Mute == false):
+			Options.Master_Mute = true
+			$ctrl_Audio/sldr_Master.set_modulate(Color(1,1,1,0.1))
+		elif(Options.Master_Mute == true):
+			Options.Master_Mute = false
+			$ctrl_Audio/sldr_Master.set_modulate(Color(1,1,1,1))
 	Options.choose_music()
 	Options.save_game()
 	pass
 
 func Master_Volume(value):
+	if(ready == false):
+		if(Options.Master_Mute == true):
+			Options.Master_Mute = false
+			$ctrl_Audio/sldr_Master.set_modulate(Color(1,1,1,1))
 	Options.Master_Volume = $ctrl_Audio/sldr_Master.get_value()
 	Options.save_game()
 	pass
 	
 func Mute_Music():
-	if(Options.Music_Mute == false):
-		Options.Music_Mute = true
-	if(Options.Music_Mute == true):
-		Options.Music_Mute = false
+	if(ready == false):
+		if(Options.Music_Mute == false):
+			Options.Music_Mute = true
+			$ctrl_Audio/sldr_Music.set_modulate(Color(1,1,1,0.1))
+		elif(Options.Music_Mute == true):
+			Options.Music_Mute = false
+			$ctrl_Audio/sldr_Music.set_modulate(Color(1,1,1,1))
 	Options.choose_music()
 	Options.save_game()	
 	pass
 
 func Music_Volume(value):
+	if(ready == false):
+		if(Options.Music_Mute == true):
+			Options.Music_Mute == false
+			$ctrl_Audio/sldr_Music.set_modulate(Color(1,1,1,1))
 	Options.Music_Volume = $ctrl_Audio/sldr_Music.get_value()
 	Options.save_game()
 	pass
 	
 func Mute_Effects():
-	if(Options.Effects_Mute == false):
-		Options.Effects_Mute = true
-	if(Options.Effects_Mute == true):
-		Options.Effects_Mute = false
+	if(ready == false):
+		if(Options.Effects_Mute == false):
+			Options.Effects_Mute = true
+			$ctrl_Audio/sldr_Effects.set_modulate(Color(1,1,1,0.1))
+		elif(Options.Effects_Mute == true):
+			Options.Effects_Mute = false
+			$ctrl_Audio/sldr_Effects.set_modulate(Color(1,1,1,1))
 	Options.choose_music()
 	Options.save_game()	
 	pass
 
 func Effects_Volume(value):
+	if(ready == false):
+		if(Options.Effects_Mute == true):
+			Options.Effects_Mute = false
+			$ctrl_Audio/sldr_Effects.set_modulate(Color(1,1,1,1))
 	Options.Effects_Volume = $ctrl_Audio/sldr_Effects.get_value()
 	Options.save_game()
 	pass
