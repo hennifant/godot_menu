@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Menu/Options.gd" type="Script" id=1]
+[ext_resource path="res://Textures/UI/Controls/Switch/Switch_A.png" type="Texture" id=2]
+[ext_resource path="res://Textures/UI/Controls/Switch/Switch_Square.png" type="Texture" id=3]
 
 [node name="Options" type="Control"]
 anchor_right = 1.0
@@ -114,31 +116,19 @@ anchor_top = 0.25
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="btn_Use" type="Button" parent="ctrl_Controls"]
-margin_left = 50.0
-margin_top = 50.0
-margin_right = 200.0
-margin_bottom = 70.0
-text = "Use"
+[node name="btn_Keyboard" type="Button" parent="ctrl_Controls"]
+margin_left = 270.0
+margin_top = 10.0
+margin_right = 420.0
+margin_bottom = 30.0
+text = "Keyboard"
 
-[node name="lbl_Use" type="Label" parent="ctrl_Controls"]
-margin_left = 220.0
-margin_top = 50.0
-margin_right = 320.0
-margin_bottom = 70.0
-
-[node name="btn_Pause" type="Button" parent="ctrl_Controls"]
-margin_left = 50.0
-margin_top = 100.0
-margin_right = 200.0
-margin_bottom = 120.0
-text = "Pause"
-
-[node name="lbl_Pause" type="Label" parent="ctrl_Controls"]
-margin_left = 220.0
-margin_top = 100.0
-margin_right = 320.0
-margin_bottom = 120.0
+[node name="btn_Controller" type="Button" parent="ctrl_Controls"]
+margin_left = 540.0
+margin_top = 10.0
+margin_right = 690.0
+margin_bottom = 30.0
+text = "Controller"
 
 [node name="Key" type="Control" parent="ctrl_Controls"]
 visible = false
@@ -151,3 +141,64 @@ anchor_bottom = 1.0
 text = "Press any key"
 align = 1
 valign = 1
+
+[node name="Keyboard" type="Control" parent="ctrl_Controls"]
+visible = false
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="btn_Use" type="Button" parent="ctrl_Controls/Keyboard"]
+margin_left = 50.0
+margin_top = 5.0
+margin_right = 200.0
+margin_bottom = 25.0
+text = "Use"
+
+[node name="lbl_Use" type="Label" parent="ctrl_Controls/Keyboard"]
+margin_left = 220.0
+margin_top = 5.0
+margin_right = 320.0
+margin_bottom = 25.0
+
+[node name="btn_Pause" type="Button" parent="ctrl_Controls/Keyboard"]
+margin_left = 50.0
+margin_top = 55.0
+margin_right = 200.0
+margin_bottom = 75.0
+text = "Pause"
+
+[node name="lbl_Pause" type="Label" parent="ctrl_Controls/Keyboard"]
+margin_left = 220.0
+margin_top = 55.0
+margin_right = 320.0
+margin_bottom = 75.0
+
+[node name="Controller" type="Control" parent="ctrl_Controls"]
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="btn_Use" type="Button" parent="ctrl_Controls/Controller"]
+margin_left = 50.0
+margin_top = 5.0
+margin_right = 200.0
+margin_bottom = 25.0
+text = "Use"
+
+[node name="spr_Use" type="Sprite" parent="ctrl_Controls/Controller"]
+position = Vector2( 240, 17 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+
+[node name="btn_Pause" type="Button" parent="ctrl_Controls/Controller"]
+margin_left = 50.0
+margin_top = 55.0
+margin_right = 200.0
+margin_bottom = 75.0
+text = "Pause"
+
+[node name="spr_Pause" type="Sprite" parent="ctrl_Controls/Controller"]
+position = Vector2( 240, 70 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )

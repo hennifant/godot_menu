@@ -5,6 +5,8 @@ func _ready():
 	$btn_Options.connect("pressed", self, "Options")
 	$btn_Quit.connect("pressed", self, "Quit")
 	
+	$btn_Play.grab_focus()
+	
 func Play():
 	get_tree().change_scene("res://Scenes/Menu/Play.tscn")
 	pass

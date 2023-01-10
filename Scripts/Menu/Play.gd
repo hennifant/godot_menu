@@ -4,6 +4,8 @@ func _ready():
 	$btn_New_Game.connect("pressed", self, "New_Game")
 	$btn_Load_Game.connect("pressed", self, "Load_Game")
 	$btn_Back.connect("pressed", self,"Back")
+	
+	$btn_New_Game.grab_focus()
 	pass 
 	
 

@@ -10,11 +10,10 @@ func _ready():
 	$Pause/btn_Quit.connect("pressed", self, "Quit")
 	pass
 	
-	
 	# temporary
 	
 	Options.paused = true
-	
+	$Pause/btn_Resume.grab_focus()
 	pass
 
 func _process(delta):

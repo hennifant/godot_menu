@@ -18,6 +18,7 @@ func _ready():
 	
 	$lbl_Name.set_size(Vector2(1024,60))
 	
+	$btn_Save1.grab_focus()
 	pass
 
 func Save1():

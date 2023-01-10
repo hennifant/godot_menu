@@ -12,6 +12,8 @@ var song
 var menu = true
 var paused = false
 var pause_menu = false
+var con_use_image
+var con_pause_image
 
 # Saved
 
@@ -24,8 +26,17 @@ var Effects_Mute = false
 var res_width = 1920
 var res_height = 1080
 var fullscreen = false
-var sp_use = 32
-var sp_pause = 16777217
+
+var key_use = 32
+var key_pause = 16777217
+
+var con_use = 0
+var con_use_pad = true
+var con_use_axis = 0
+
+var con_pause = 0
+var con_pause_pad = true
+var con_pause_axis = 0
 
 func _ready():
 	load_game()
@@ -111,6 +122,15 @@ func game_music():
 	pass
 	
 func resolution():
+	
+	if(fullscreen == true):
+		OS.set_window_fullscreen(false)
+		OS.set_window_fullscreen(true)
+	elif(fullscreen == false):
+		OS.set_window_fullscreen(true)
+		OS.set_window_fullscreen(false)
+		OS.set_window_position(Vector2(0,0))
+	
 	ProjectSettings.set_setting("display/window/size/width", res_width)
 	ProjectSettings.set_setting("display/window/size/height", res_height)
 	OS.set_window_size(Vector2(res_width, res_height))
@@ -122,8 +142,6 @@ func resolution():
 		OS.set_window_fullscreen(true)
 		OS.set_window_fullscreen(false)
 		OS.set_window_position(Vector2(0,0))
-		
-		
 		
 	pass
 	
@@ -142,8 +160,15 @@ func save_game():
 		Effects_Volume = Effects_Volume,
 		Effects_Mute = Effects_Mute,
 		
-		sp_use = sp_use,
-		sp_pause = sp_pause
+		key_use = key_use,
+		key_pause = key_pause,
+		con_use = con_use,
+		con_use_pad = con_use_pad,
+		con_use_axis = con_use_axis,
+		con_pause = con_pause,
+		con_pause_pad = con_pause_pad,
+		con_pause_axis = con_pause_axis
+		
 	}
 	
 	var save_file = File.new()
@@ -172,8 +197,104 @@ func load_game():
 	res_width = data['resolution']['width']
 	res_height = data['resolution']['height']
 	fullscreen = data['fullscreen']
-	sp_use = data['sp_use']
-	sp_pause = data['sp_pause']
+	key_use = data['key_use']
+	key_pause = data['key_pause']
+	con_use = data['con_use']
+	con_use_pad = data['con_use_pad']
+	con_use_axis = data['con_use_axis']
+	con_pause = data['con_pause']
+	con_pause_pad = data['con_pause_pad']
+	con_pause_axis = data['con_pause_axis']
 	
 	pass
 
+func controller():
+	if(con_use_pad == true):
+		if(con_use == 0):
+			con_use_image = load("res://Textures/UI/Controls/Switch/Switch_A.png")
+		elif(con_use == 1):
+			con_use_image = load("res://Textures/UI/Controls/Switch/Switch_B.png")
+		elif(con_use == 2):
+			con_use_image = load("res://Textures/UI/Controls/Switch/Switch_X.png")
+		elif(con_use == 3):
+			con_use_image = load("res://Textures/UI/Controls/Switch/Switch_Y.png")
+		elif(con_use == 4):
+			con_use_image = load("res://Textures/UI/Controls/Switch/Switch_LB.png")
+		elif(con_use == 5):
+			con_use_image = load("res://Textures/UI/Controls/Switch/Switch_RB.png")
+		elif(con_use == 6):
+			con_use_image = load("res://Textures/UI/Controls/Switch/Switch_LT.png")
+		elif(con_use == 7):
+			con_use_image = load("res://Textures/UI/Controls/Switch/Switch_RT.png")
+		elif(con_use == 8):
+			con_use_image = load("res://Textures/UI/Controls/Switch/Switch_Left_Stick.png")
+		elif(con_use == 9):
+			con_use_image = load("res://Textures/UI/Controls/Switch/Switch_Right_Stick.png")
+		elif(con_use == 10):
+			con_use_image = load("res://Textures/UI/Controls/Switch/Switch_Square.png")
+		elif(con_use == 11):
+			con_use_image = load("res://Textures/UI/Controls/Switch/Switch_Home.png")
+		elif(con_use == 12):
+			con_use_image = load("res://Textures/UI/Controls/Switch/Switch_Dpad_Up.png")
+		elif(con_use == 13):
+			con_use_image = load("res://Textures/UI/Controls/Switch/Switch_Dpad_Down.png")
+		elif(con_use == 14):
+			con_use_image = load("res://Textures/UI/Controls/Switch/Switch_Dpad_Left.png")
+		elif(con_use == 15):
+			con_use_image = load("res://Textures/UI/Controls/Switch/Switch_Dpad_Right.png")
+		
+	elif(con_use_pad == false):
+		if(con_use == 0):
+			con_use_image = load("res://Textures/UI/Controls/Switch/Switch_Left_Stick.png")
+		elif(con_use == 1):
+			con_use_image = load("res://Textures/UI/Controls/Switch/Switch_Left_Stick.png")
+		elif(con_use == 2):
+			con_use_image = load("res://Textures/UI/Controls/Switch/Switch_Right_Stick.png")
+		elif(con_use == 3):
+			con_use_image = load("res://Textures/UI/Controls/Switch/Switch_Right_Stick.png")
+	if(con_pause_pad == true):
+		if(con_pause == 0):
+			con_pause_image = load("res://Textures/UI/Controls/Switch/Switch_A.png")
+		elif(con_pause == 1):
+			con_pause_image = load("res://Textures/UI/Controls/Switch/Switch_B.png")
+		elif(con_pause == 2):
+			con_pause_image = load("res://Textures/UI/Controls/Switch/Switch_X.png")
+		elif(con_pause == 3):
+			con_pause_image = load("res://Textures/UI/Controls/Switch/Switch_Y.png")
+		elif(con_pause == 4):
+			con_pause_image = load("res://Textures/UI/Controls/Switch/Switch_LB.png")
+		elif(con_pause == 5):
+			con_pause_image = load("res://Textures/UI/Controls/Switch/Switch_RB.png")
+		elif(con_pause == 6):
+			con_pause_image = load("res://Textures/UI/Controls/Switch/Switch_LT.png")
+		elif(con_pause == 7):
+			con_pause_image = load("res://Textures/UI/Controls/Switch/Switch_RT.png")
+		elif(con_pause == 8):
+			con_pause_image = load("res://Textures/UI/Controls/Switch/Switch_Left_Stick.png")
+		elif(con_pause == 9):
+			con_pause_image = load("res://Textures/UI/Controls/Switch/Switch_Right_Stick.png")
+		elif(con_pause == 10):
+			con_pause_image = load("res://Textures/UI/Controls/Switch/Switch_Square.png")
+		elif(con_pause == 11):
+			con_pause_image = load("res://Textures/UI/Controls/Switch/Switch_Home.png")
+		elif(con_pause == 12):
+			con_pause_image = load("res://Textures/UI/Controls/Switch/Switch_Dpad_Up.png")
+		elif(con_pause == 13):
+			con_pause_image = load("res://Textures/UI/Controls/Switch/Switch_Dpad_Down.png")
+		elif(con_pause == 14):
+			con_pause_image = load("res://Textures/UI/Controls/Switch/Switch_Dpad_Left.png")
+		elif(con_pause == 15):
+			con_pause_image = load("res://Textures/UI/Controls/Switch/Switch_Dpad_Right.png")
+			
+	elif(con_pause_pad == false):
+		if(con_pause == 0):
+			con_pause_image = load("res://Textures/UI/Controls/Switch/Switch_Left_Stick.png")
+		elif(con_pause == 1):
+			con_pause_image = load("res://Textures/UI/Controls/Switch/Switch_Left_Stick.png")
+		elif(con_pause == 2):
+			con_pause_image = load("res://Textures/UI/Controls/Switch/Switch_Right_Stick.png")
+		elif(con_pause == 3):
+			con_pause_image = load("res://Textures/UI/Controls/Switch/Switch_Right_Stick.png")
+	
+		
+	pass
