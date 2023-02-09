@@ -1,0 +1,26 @@
+[gd_scene format=2]
+
+[node name="Staff" type="Control"]
+margin_right = 210.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 210.0
+margin_bottom = 40.0
+color = Color( 0.196078, 0.196078, 0.196078, 1 )
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+margin_right = 210.0
+margin_bottom = 40.0
+border_color = Color( 1, 1, 1, 1 )
+border_width = 2.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ReferenceRect" type="ReferenceRect" parent="TextureRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+border_color = Color( 1, 1, 1, 1 )
+border_width = 2.0
